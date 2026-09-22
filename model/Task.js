@@ -30,10 +30,10 @@ const taskSchema = new mongoose.Schema(
 
     priority: {
       type: String,
-      required: [true, "Priority is required"],
+      
       enum: {
         values: ["low", "medium", "high"],
-        message: "Priority must be low, medium, or high",
+        default:"medium",
       },
     },
   },

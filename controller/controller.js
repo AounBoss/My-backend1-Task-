@@ -2,10 +2,10 @@ import Task from "../model/Task.js";
 const createTask = async(req,res) =>{
     try{
       const  {title,description,deadline,priority }= req.body;
-    if (!title||!description||!deadline||!priority){
+    if (!title||!description||!deadline){
     return res.status(400).json({
         message:"All fields are important!" });}
-        const task = await Task.create({title,description,deadline,priority,iscompleted:false});
+        const task = await Task.create({title,description,deadline,priority:priority||"medium",iscompleted:false});
     res.status(201).json({
         message:"Task created successfully",task,
     })
